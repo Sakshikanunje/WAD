@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+<h1>The XMLHttpRequest Object</h1>
+<button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local File Content</title>
+<style>
+  body {
+    background-color: #eb457f37;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    text-align: center;
+    margin-top: 100px;
+  }
+  #fileContent {
+    margin: 20px;
+    padding: 150px;
+    background-color: rgba(255, 255, 255, 0.842);
+    border-radius: 10px;
+  }
+  .center {
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>Local File /Content</h1>
+<div id="fileContent"></div>
+<div class="center">
+  <button onclick="displayFile()">Open</button>
+</div>
+
+<script>
+function displayFile() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("fileContent").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

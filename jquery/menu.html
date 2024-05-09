@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        .menu-item {
+            margin-bottom: 10px;
+        }
+        .menu-item img {
+            width: 200px;
+            height: 200px;
+        }
+        .menu-item-details {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+    <div data-role="header" data-position="fixed" data-theme="b">
+        <h1>Restaurant Menu</h1>
+    </div>
+
+    <div data-role="content">
+        <div class="menu-item">
+            <a href="#burger" data-transition="slide">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.8MJgw49NgTeBLs1BFzqS0gHaHa&pid=Api&P=0&h=220" alt="Burger">
+                <h2>Burger</h2>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="#pizza" data-transition="slide">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.2dhr5Ln6cMHIu9SmwE_uBgHaE7&pid=Api&P=0&h=220" alt="Pizza">
+                <h2>Pizza</h2>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="#salad" data-transition="slide">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7YlNlyxwdFIEQZtxRJEfk2Mjgi86MsLLAMzWY69zUyQ&s" alt="Salad">
+                <h2>Salad</h2>
+            </a>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <h4>&copy; Ruchi's Restaurant</h4>
+    </div>
+</div>
+
+<!-- Burger Page -->
+<div data-role="page" id="burger">
+    <div data-role="header" data-position="fixed" data-theme="b">
+        <a href="#home" data-rel="back" data-icon="back">Back</a>
+        <h1>Burger</h1>
+    </div>
+
+    <div data-role="content" class="menu-item-details">
+        <img src="burger.jpg" alt="Burger">
+        <p>Description of the burger.</p>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <h4>&copy; Ruchi's Restaurant</h4>
+    </div>
+</div>
+
+<!-- Pizza Page -->
+<div data-role="page" id="pizza">
+    <div data-role="header" data-position="fixed" data-theme="b">
+        <a href="#home" data-rel="back" data-icon="back">Back</a>
+        <h1>Pizza</h1>
+    </div>
+
+    <div data-role="content" class="menu-item-details">
+        <img src="pizza.jpg" alt="Pizza">
+        <p>Description of the pizza.</p>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <h4>&copy; Ruchi's Restaurant</h4>
+    </div>
+</div>
+
+<!-- Salad Page -->
+<div data-role="page" id="salad">
+    <div data-role="header" data-position="fixed" data-theme="b">
+        <a href="#home" data-rel="back" data-icon="back">Back</a>
+        <h1>Salad</h1>
+    </div>
+
+    <div data-role="content" class="menu-item-details">
+        <img src="salad.jpg" alt="Salad">
+        <p>Description of the salad.</p>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <h4>&copy; Ruchi's Restaurant</h4>
+    </div>
+</div>
+
+</body>
+</html>

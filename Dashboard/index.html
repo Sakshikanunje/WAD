@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style1.css" />
+    <title>Bootstap 5 Responsive Admin Dashboard</title>
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <img class="logo" src="./logo.jpeg.png" alt="Girl in a jacket">Gatha</div>
+            <div class="list-group list-group-flush my-3">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active">
+                    <i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fa fa-book" aria-hidden="true"> </i> Books</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fa fa-user" aria-hidden="true"></i> Circulation</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fa fa-user" aria-hidden="true"></i> Notify Dealyed Member</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fa fa-user" aria-hidden="true"></i> Admin Panel</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="fa fa-cog" aria-hidden="true"></i> Settings</a>
+                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                  class="fas fa-paperclip me-2"></i> Reports</a>
+                 
+                    
+            </div>
+        </div>
+        <!-- /#sidebar -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0"></h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>Sanskruti More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4">
+                <div class="row g-3 my-2">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div class="card1">
+                                <h3 class="fs-2">10</h3>
+                                <p class="fs-5">Books</p>
+                            </div>
+                           <img class="cards_icons" src="./rack.png" alt="s">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">17</h3>
+                                <p class="fs-5">Borrowed Books </p>
+                            </div>
+                            <img class="cards_icons" src="./bring.png" alt="s">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">Return</h3>
+                                 <p class="fs-5">Books</p> 
+                            </div>
+                            <img class="cards_icons" src="./return.png" alt="s">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">Issue</h3>
+                                <p class="fs-5">Books</p> 
+                            </div>
+                            <img class="cards_icons" src="./issue.png" alt="s">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-5">
+                    <h3 class="fs-4 mb-3">Today's Dues</h3>
+                    <div class="col">
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="50">ID</th>
+                                    <th scope="col">Book Name</th>
+                                    <th scope="col">Borrower Name</th>
+                                    <th scope="col">Date Borrow</th>
+                                    <th scope="col">Contact</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Rich Dad Poor Dad .</td>
+                                    <td>Jonny</td>
+                                    <td>23-2-2024</td>
+                                    <td>0867839010</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Atomic Habits</td>
+                                    <td>Kenny</td>
+                                    <td>23-2-2024</td>
+                                    <td>0867833224</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Lead From the Outside</td>
+                                    <td>Ronny</td>
+                                    <td>23-2-2024</td>
+                                    <td>9910783326</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Physics of the Impossible</td>
+                                    <td>Killy</td>
+                                    <td>23-2-2024</td>
+                                    <td>4910712324</td>
+                                   
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td> The Art of Asking</td>
+                                    <td>Filly</td>
+                                    <td>23-2-2024</td>
+                                    <td>2910712327</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Best of the Best</td>
+                                    <td>Bumbo</td>
+                                    <td>23-2-2024</td>
+                                    <td>1909107130</td>
+                                </tr>
+                              
+                              </tbody>
+                          </table>
+
+                          <!--Graphs-->
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-md-6">
+                <div class="bg-white">
+                    <h2>Books Returned Till The Date</h2>
+                    <canvas id="myChart1" width="100" height="200"></canvas>
+               
+                    <script>
+                        var ctx = document.getElementById('myChart1').getContext('2d');
+                        var myChart1 = new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                               // labels: ['', '', '', '', '', ''],
+                                datasets: [{
+                                    label: '',
+                                    data: [20,80],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="bg-white">
+                    <h2>Books Issued In The Week</h2>
+                    <canvas id="myChart" width="400" height="300"></canvas>
+                    <script>
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Monday','Tuesday','Wednesday','Thursday','Friday'],
+                                datasets: [{
+                                    label: 'BOOKS',
+                                    data: [12, 19, 3, 5, 2, 3],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Graphs-->
+                          
+                 
+        
+       
+
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+   
+
+    <script>
+    var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
+
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Department Viewer</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+    /* Custom styles */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .department-button:hover {
+      background-color: #45a049; /* Darker Green */
+    }
+
+    .department-images {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .department-images img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  </style>
+</head>
+<body>
+
+<div data-role="page" id="home">
+  <div data-role="header" class="ui-bar">
+    <h1>Welcome to PVGCOET, Pune</h1>
+    <h3>List of Departments</h3>
+  </div>
+
+  <div data-role="content">
+    <div class="ui-grid-d">
+      <div class="ui-block-a"><button class="department-button" data-department="CS">Computer Science</button></div>
+      <div class="ui-block-b"><button class="department-button" data-department="IT">Information Technology</button></div>
+      <div class="ui-block-c"><button class="department-button" data-department="ENTC">Electronics and Telecommunication</button></div>
+      <div class="ui-block-d"><button class="department-button" data-department="MECH">Mechanical Engineering</button></div>
+      <div class="ui-block-e"><button class="department-button" data-department="ELECTRICAL">Electrical Engineering</button></div>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="department-page">
+  <div data-role="header" class="ui-bar">
+    <a href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-icon-back ui-btn-icon-left">Back</a>
+    <h1>Department Information</h1>
+  </div>
+
+  <div data-role="content" id="department-info" class="department-images">
+    <!-- Department information and pictures will be displayed here -->
+  </div>
+</div>
+
+<script>
+  $(document).on("pagecreate", function() {
+    $(".department-button").on("click", function() {
+      var department = $(this).data("department");
+      var departmentInfo = "";
+
+      if (department === "CS") {
+        departmentInfo += "<h2>" + department + "</h2>";
+        departmentInfo += "<p>Computer Science Engineering is a department focused on teaching and research in computer science and engineering.</p>";
+        departmentInfo += "<p>Here are some pictures of our department:</p>";
+        departmentInfo += "<div class='department-images'>";
+        departmentInfo += "<img src='https://www.pomona.edu/sites/default/files/images/paragraphs/cs-lab-students-4.jpg' alt='Computer Science Engineering 1'>";
+        departmentInfo += "<img src='https://tse2.mm.bing.net/th?id=OIP.LuR7qJRYWJwARQZ1eFI6SgHaE8&pid=Api&P=0&h=220' alt='Computer Science Engineering 2'>";
+      }
+      // Add similar blocks for other departments
+
+      if (department === "IT") {
+        departmentInfo += "<h2>" + department + "</h2>";
+        departmentInfo += "<p>Computer Science Engineering is a department focused on teaching and research in computer science and engineering.</p>";
+        departmentInfo += "<p>Here are some pictures of our department:</p>";
+        departmentInfo += "<div class='department-images'>";
+        departmentInfo += "<img src='https://www.pomona.edu/sites/default/files/images/paragraphs/cs-lab-students-4.jpg' alt='Computer Science Engineering 1'>";
+        departmentInfo += "<img src='https://tse2.mm.bing.net/th?id=OIP.LuR7qJRYWJwARQZ1eFI6SgHaE8&pid=Api&P=0&h=220' alt='Computer Science Engineering 2'>";
+      }
+      
+      $("#department-info").html(departmentInfo);
+      $.mobile.changePage("#department-page");
+    });
+  });
+</script>
+
+</body>
+</html>

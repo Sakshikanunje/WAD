@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotel Search</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>Hotel Search</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="search-form">
+            <div class="ui-field-contain">
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location">
+            </div>
+            <div class="ui-field-contain">
+                <label for="check-in">Check-in Date:</label>
+                <input type="date" name="check-in" id="check-in">
+            </div>
+            <div class="ui-field-contain">
+                <label for="check-out">Check-out Date:</label>
+                <input type="date" name="check-out" id="check-out">
+            </div>
+            <div class="ui-field-contain">
+                <label for="guests">Number of Guests:</label>
+                <input type="number" name="guests" id="guests" min="1">
+            </div>
+            <button type="submit" class="ui-btn ui-btn-b">Search</button>
+        </form>
+    </div>
+</div>
+
+<div data-role="page" id="search-results">
+    <div data-role="header">
+        <a href="#" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-icon-back ui-btn-icon-left">Back</a>
+        <h1>Search Details</h1>
+    </div>
+
+    <div data-role="content" id="results-content">
+        <!-- Search details will be displayed here -->
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", function () {
+        $("#search-form").on("submit", function (e) {
+            e.preventDefault();
+            
+            var location = $("#location").val();
+            var checkIn = $("#check-in").val();
+            var checkOut = $("#check-out").val();
+            var guests = $("#guests").val();
+            
+            // Display search details
+            displaySearchDetails(location, checkIn, checkOut, guests);
+            
+            // Navigate to search details page
+            $.mobile.changePage("#search-results");
+        });
+        
+        // Function to display search details
+        function displaySearchDetails(location, checkIn, checkOut, guests) {
+            var content = "<ul data-role='listview'>";
+            content += "<li><strong>Location:</strong> " + location + "</li>";
+            content += "<li><strong>Check-in Date:</strong> " + checkIn + "</li>";
+            content += "<li><strong>Check-out Date:</strong> " + checkOut + "</li>";
+            content += "<li><strong>Number of Guests:</strong> " + guests + "</li>";
+            content += "</ul>";
+            $("#results-content").html(content).enhanceWithin();
+        }
+    });
+</script>
+
+</body>
+</html>

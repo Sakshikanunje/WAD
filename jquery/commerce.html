@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-commerce App</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    .ui-grid-c .ui-block-a,
+    .ui-grid-c .ui-block-b,
+    .ui-grid-c .ui-block-c {
+      width: 30.333%;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .product-images {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        margin-bottom: 10px;
+      }
+  
+      .product-images img {
+        width: 240px;
+        height: 200px;
+        margin-right: 10px;
+      }
+  
+      .product-images img:last-child {
+        margin-right: 0;
+      }
+    
+      h2
+      {
+        text-align: center;
+      }
+
+  </style>
+</head>
+<body>
+
+<div data-role="page">
+
+  <div data-role="header">
+    <h1>E-commerce App</h1>
+  </div>
+
+  <div data-role="content">
+    <div class="ui-grid-c" id="product-list">
+      <!-- Product items will be dynamically added here -->
+    </div>
+    <div id="cart-container" class="hidden">
+      <h2>Your Cart</h2>
+      <ul id="cart-items" data-role="listview" data-inset="true">
+        <!-- Cart items will be dynamically added here -->
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <button id="checkout-btn" data-icon="shop" data-iconpos="right">Checkout</button>
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function() {
+    const products = [
+      { id: 1, name: 'Ladies Top', price: 300, image: 'https://tse2.mm.bing.net/th?id=OIP.wX6w8787bCbD4c9KU2BjsAHaJ3&pid=Api&P=0&h=220' },
+      { id: 2, name: 'Shoes', price: 1500, image: 'https://tse2.mm.bing.net/th?id=OIP.TIWckpoCSJiDO_8U3qewegHaEh&pid=Api&P=0&h=220' },
+      { id: 3, name: 'Boys T-shirt', price: 700, image: 'https://tse3.mm.bing.net/th?id=OIP.1iaV4VA7vqetHKl8tQcHQgHaHa&pid=Api&P=0&h=220' },
+      { id: 4, name: 'Mens Jeans ', price: 2500, image: 'https://tse1.mm.bing.net/th?id=OIP.stLU_1Za4x4UMISrz4FGCwHaIh&pid=Api&P=0&h=220' },
+      { id: 5, name: 'Ladies heels', price: 1000, image: 'https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+      { id: 6, name: 'Formal Shirt', price: 3500, image: 'https://tse2.mm.bing.net/th?id=OIP.I5E577lVIXIPYfh8UybwXQHaHa&pid=Api&P=0&h=220' }
+    ];
+
+    const productList = $('#product-list');
+    const cartItems = $('#cart-items');
+    const checkoutBtn = $('#checkout-btn');
+    let cart = [];
+
+    // Display products
+    function displayProducts() {
+      const productElement = $('<div class="product-images"></div>');
+      $.each(products, function(index, product) {
+        productElement.append(`
+          <a href="#" class="ui-btn ui-shadow">
+            <img src="${product.image}" alt="${product.name}" class="product-img">
+            <h3>${product.name}</h3>
+            <p>Rs ${product.price}</p>
+          </a>
+        `);
+      });
+      productList.append(productElement);
+      productList.trigger('create');
+    }
+
+    // Add item to cart
+    $(document).on('click', '.ui-btn', function() {
+      const productId = $(this).index() + 1;
+      const product = products.find(item => item.id === productId);
+      cart.push(product);
+      updateCart();
+    });
+
+    // Update cart display
+    function updateCart() {
+      cartItems.empty();
+      $.each(cart, function(index, item) {
+        const li = $('<li></li>');
+        li.text(`${item.name} - $${item.price}`);
+        cartItems.append(li);
+      });
+      cartItems.listview('refresh');
+      $('#cart-container').removeClass('hidden');
+    }
+
+    // Checkout
+    checkoutBtn.on('click', function() {
+      alert('Checkout completed!');
+      cart = [];
+      updateCart();
+    });
+
+    // Initialize
+    displayProducts();
+  });
+</script>
+
+</body>
+</html>
